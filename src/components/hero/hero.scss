@@ -1,0 +1,159 @@
+@use "../../App.scss" as *;
+.hero_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 4rem;
+  gap: 3rem;
+  align-items: center;
+  // height: 80vh;
+  max-width: 100%;
+  overflow: hidden;
+  margin-top: 10rem;
+  @include breack_down(large) {
+    margin-top: 5rem;
+    flex-direction: column;
+    padding: 1rem 2rem;
+  }
+  .hero_text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @include breack_down(large) {
+      align-items: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    h1 {
+      font-size: 80px;
+      color: $second2;
+      @include breack_down(large) {
+        font-size: 43px;
+        text-align: center;
+      }
+      @include breack_down(medium) {
+        font-size: 33px;
+      }
+    }
+    p {
+      font-size: 20px;
+      font-weight: 400;
+      color: $second2;
+      @include breack_down(large) {
+        font-size: 14px;
+        text-align: center;
+      }
+      @include breack_down(medium) {
+        font-size: 12px;
+      }
+    }
+    button {
+      width: fit-content;
+      background-color: $light;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 20px;
+      border-radius: 4px;
+      outline: 1px solid $light;
+      transition: 0.4s;
+      box-shadow: 4px 4px 11px #293148;
+      font-weight: 500;
+      cursor: pointer;
+      @include breack_down(large) {
+        font-size: 12px;
+        padding: 0.3rem 0.6rem;
+      }
+      &:hover {
+        background-color: transparent;
+        color: $light;
+        box-shadow: 4px 4px 11px #a3aece;
+      }
+    }
+  }
+}
+
+.hero_n_image {
+  width: 50vw;
+  height: 60vh;
+  object-fit: cover;
+  position: relative;
+  @include breack_down(large) {
+    width: 100vw;
+    height: auto;
+  }
+  svg {
+    @include breack_down(large) {
+      width: 100%;
+      height: fit-content;
+    }
+  }
+}
+#inline_id {
+  opacity: 0;
+  animation: draw3 1s 0.5s forwards;
+}
+#outline_id {
+  stroke-width: 10px;
+  fill: none;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: draw 2s forwards, draw2 1s 0.5s forwards;
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw2 {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes draw3 {
+  to {
+    opacity: 1;
+  }
+}
+.hero_coins {
+  position: absolute;
+  top: 0;
+  display: flex;
+  gap: 2rem;
+  @include breack_down(medium) {
+    gap: 1rem;
+  }
+  .coin_1 {
+    opacity: 0;
+    animation: bounceIn forwards 1s 1.3s;
+    margin-top: 1rem;
+    @include breack_down(medium) {
+      margin-top: 0.5rem;
+    }
+  }
+  .coin_2 {
+    opacity: 0;
+    animation: bounceIn forwards 1s 1.9s;
+    margin-top: 3rem;
+    @include breack_down(medium) {
+      margin-top: 1.5rem;
+    }
+  }
+  .coin_3 {
+    opacity: 0;
+    animation: bounceIn forwards 1s 2.5s;
+  }
+  .coin_4 {
+    opacity: 0;
+    animation: bounceIn forwards 1s 3.1s;
+    margin-top: 4rem;
+    @include breack_down(medium) {
+      margin-top: 0.5rem;
+    }
+  }
+}
+.hero_coins * {
+  @include breack_down(large) {
+    width: 4rem;
+    height: 4rem;
+  }
+}
