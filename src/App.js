@@ -30,6 +30,7 @@ function App() {
       myElementRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <BrowserRouter>
       <Navbar scrollToElement={scrollToElement} />
